@@ -4,17 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CORS & API KEY TEST</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>CORS & API KEY TEST</h1>
-    <p>API_KEY를 입력하세요</p>
-    <input type="text" id="apiKey" placeholder="API_KEY">
-    <form id="internalTest">
-        <button type="submit">Internal Test</button>
-    </form>
-    <form id="externalTest">
-        <button type="submit">External Test</button>
-    </form>
+    <section>
+        <p>API_KEY를 입력하세요</p>
+        <input type="text" id="apiKey" placeholder="API_KEY">
+        <p>API_URL을 입력하세요</p>
+        <input type="text" id="apiUrl" placeholder="API_URL">    
+    </section>
+    <section>
+        <form id="internalTest">
+            <button type="submit">Internal Test</button>
+        </form>
+        <form id="externalTest">
+            <button type="submit">External Test</button>
+        </form>    
+    </section>
     <script src="main.js"></script>
 </body>
 </html>
