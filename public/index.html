@@ -3,17 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CORS TEST</title>
+    <title>CORS & API KEY TEST</title>
 </head>
 <body>
     <script>
         document.addEventListener('DOMContentLoaded', async function() {
             const url = 'http://localhost:3000';
+            if (!localStorage.getItem('API_KEY')) {
+                const apiKey = prompt('API_KEY를 입력하세요');
+                if (apiKey) {
+                    localStorage.setItem('API_KEY', apiKey);
+                }
+            }
             try {
                 const response = await fetch(url, {
                     method: 'GET',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Authorization': localStorage.getItem('API_KEY') || '',
                     },
                 });
                 if (response.ok) {
