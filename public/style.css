@@ -1,0 +1,48 @@
+/*
+파일명: /Users/morgan/Development/workspace/ai-wrapper/public/style.css
+설명: CORS & API 키 테스트 페이지의 스타일시트
+
+이 CSS 파일은 API 인증 및 CORS 테스트를 위한 인터페이스의 스타일을 정의합니다.
+
+주요 스타일:
+1. 폰트: 'Freesentation-9Black' 웹폰트를 정의하고 페이지 전체에 적용
+2. 리셋: 모든 요소의 기본 마진, 패딩을 제거하고 box-sizing을 설정
+3. 요소: 버튼과 입력 필드에 기본 패딩 적용
+4. 레이아웃: section 요소를 세로 방향 플렉스 컨테이너로 설정하여 내부 요소 정렬
+
+연결 파일:
+- index.html: 이 스타일을 사용하는 메인 HTML 페이지
+- main.js: 페이지의 기능 구현 스크립트
+*/
+
+/* Font */
+@font-face {
+    font-family: 'Freesentation-9Black';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-9Black.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Freesentation-9Black', sans-serif;
+}
+
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Elements */
+button, input {
+    padding: 4px;
+}
+
+/* Layout */
+section {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    gap: 4px;
+}
