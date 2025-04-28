@@ -21,28 +21,73 @@
 -->
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CORS & API KEY TEST</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <h1>CORS & API KEY TEST</h1>
     <section>
         <p>API_KEY를 입력하세요</p>
         <input type="text" id="apiKey" placeholder="API_KEY">
         <p>API_URL을 입력하세요</p>
-        <input type="text" id="apiUrl" placeholder="API_URL">    
+        <input type="text" id="apiUrl" placeholder="API_URL">
     </section>
     <section>
-        <form id="internalTest">
-            <button type="submit">Internal Test</button>
+        <label>
+            <input type="checkbox" id="internal" checked>
+            내부 테스트 (localhost:3000)
+        </label>
+        <form id="healthCheck">
+            <button type="submit">Health Check</button>
         </form>
-        <form id="externalTest">
-            <button type="submit">External Test</button>
-        </form>    
+        <h2>Gemini</h2>
+        <details>
+            <summary>Text</summary>
+            <form id="gemini">
+                <select id="geminiModel">
+                    <!-- 15 RPM, 1500 RPD -->
+                    <option value="g-20-f">Gemini 2.0 Flash</option>
+                    <!-- 30 RPM, 1500 RPD -->
+                    <option value="g-20-fl">Gemini 2.0 Flash-Lite</option>
+                    <!-- 15 RPM, 1500 RPD -->
+                    <option value="g-15-f">Gemini 1.5 Flash</option>
+                    <!-- 15 RPM, 1500 RPD -->
+                    <option value="g-15-f8">Gemini 1.5 Flash-8b</option>
+                    <!-- 30 RPM, 14400 RPD -->
+                    <option value="g3-1b">Gemma 3 1B</option>
+                    <option value="g3-4b">Gemma 3 4B</option>
+                    <option value="g3-12b">Gemma 3 12B</option>
+                    <option value="g3-27b">Gemma 3 27B</option>
+                </select>
+                <input type="text" id="geminiPrompt" placeholder="Prompt">
+                <button type="submit">Text</button>
+            </form>
+        </details>
+        <details>
+            <summary>Image</summary>
+            <form id="gemini2" enctype="multipart/form-data">
+                <select id="geminiModel2">
+                    <!-- 15 RPM, 1500 RPD -->
+                    <option value="g-20-f">Gemini 2.0 Flash</option>
+                    <!-- 30 RPM, 1500 RPD -->
+                    <option value="g-20-fl">Gemini 2.0 Flash-Lite</option>
+                    <!-- 15 RPM, 1500 RPD -->
+                    <option value="g-15-f">Gemini 1.5 Flash</option>
+                    <!-- 15 RPM, 1500 RPD -->
+                    <option value="g-15-f8">Gemini 1.5 Flash-8b</option>
+                </select>
+                <input type="text" id="geminiPrompt2" placeholder="Prompt">
+                <input type="file" id="geminiFile" accept="image/*">
+                <button type="submit">Image</button>
+            </form>
+        </details>
     </section>
     <script src="main.js"></script>
 </body>
+
 </html>
