@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORS TEST</title>
+</head>
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const url = 'http://localhost:3000';
+            try {
+                const response = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                });
+                if (response.ok) {
+                    alert('Response text: ' + await response.text());
+                } else {
+                    alert('Response status: ' + response.status);
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        });
+    </script>
+</body>
+</html>
