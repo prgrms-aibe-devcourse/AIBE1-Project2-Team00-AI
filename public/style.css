@@ -35,14 +35,14 @@ body {
 }
 
 /* Elements */
-button, input {
+button, input, select, summary {
     padding: 4px;
 }
 
 /* Layout */
-section {
+section, form {
     display: flex;
     flex-direction: column;
-    margin: 1rem;
-    gap: 4px;
+    margin: 0.5rem 1rem;
+    gap: 0.5rem;
 }

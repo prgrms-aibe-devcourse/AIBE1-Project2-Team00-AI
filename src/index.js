@@ -17,6 +17,13 @@ const cors = require('cors');
 const checkApiKey = require('./middleware/auth');
 
 /**
+ * 라우터 모듈들을 불러옵니다.
+ */
+const geminiRouter = require('./routes/gemini');
+const togetherRouter = require('./routes/together');
+const groqRouter = require('./routes/groq');
+
+/**
  * Express 애플리케이션을 초기화하고 기본 미들웨어를 설정하는 함수입니다.
  * @returns {Object} 설정이 완료된 Express 애플리케이션 객체
  */
@@ -39,12 +46,26 @@ function initializeApp() {
  * @param {Object} app - Express 애플리케이션 객체
  */
 function setupRoutes(app) {
-  // 루트 경로('/') GET 요청 처리
-  app.get('/', (req, res) => {
-    res.send('안녕하세요!');
-  });
+  // /gemini 경로에 geminiRouter를 연결
+  app.use('/gemini', geminiRouter);
+  // /together 경로에 togetherRouter를 연결
+  app.use('/together', togetherRouter);
+  // /groq 경로에 groqRouter를 연결
+  app.use('/groq', groqRouter);
   
-  // 추가 라우트는 여기에 추가하거나 별도 모듈로 분리 가능
+  // 기본 경로에 대한 핸들러 설정
+  app.get('/', (req, res) => {
+    res.send('API 서버가 실행 중입니다.');
+  });
+  // 404 에러 핸들러 설정
+  app.use((req, res) => {
+    res.status(404).json({ error: '요청한 경로를 찾을 수 없습니다.' });
+  });
+  // 500 에러 핸들러 설정
+  app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ error: '서버 내부 오류가 발생했습니다.' });
+  });
 }
 
 /**
