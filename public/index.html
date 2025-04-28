@@ -1,3 +1,24 @@
+<!--
+파일명: /Users/morgan/Development/workspace/ai-wrapper/public/index.html
+설명: CORS 및 API 키 테스트를 위한 HTML 인터페이스
+
+이 HTML 파일은 API 인증과 CORS(Cross-Origin Resource Sharing) 기능을 테스트하기 위한 
+사용자 인터페이스를 제공합니다.
+
+주요 기능:
+1. API 키 입력 필드: 인증에 사용될 API 키를 입력받습니다. 입력된 값은 로컬 스토리지에 저장됩니다.
+2. API URL 입력 필드: 외부 테스트를 위한 API 엔드포인트 URL을 입력받습니다. 입력된 값은 로컬 스토리지에 저장됩니다.
+3. 내부 테스트 버튼: localhost:3000에 API 요청을 보냅니다.
+4. 외부 테스트 버튼: 사용자가 입력한 URL로 API 요청을 보냅니다.
+
+연결 파일:
+- style.css: 페이지의 스타일 정의
+- main.js: API 요청 처리 및 폼 제출 이벤트 핸들링
+
+인증 방식:
+- API 요청 시 입력된 API 키가 Authorization 헤더에 포함되어 전송됩니다.
+- 서버에서는 middleware/auth.js를 통해 API 키 유효성을 검증합니다.
+-->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
